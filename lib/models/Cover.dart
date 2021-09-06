@@ -18,15 +18,16 @@ part 'Cover.g.dart';
 class Cover {
   bool? alphaChannel;
   bool? animated;
-  String checksum;
-  int height;
-  int width;
+  String? checksum;
+  int? height;
+  int? width;
+  int id;
   String imageId;
-  int game;
-  String url;
+  int? game;
+  String? url;
 
   Cover(this.alphaChannel, this.animated, this.checksum, this.height,
-      this.width, this.imageId, this.game, this.url);
+      this.width, this.id, this.imageId, this.game, this.url);
 
   factory Cover.fromJson(Map<String, dynamic> json) => _$CoverFromJson(json);
   Map<String, dynamic> toJson() => _$CoverToJson(this);

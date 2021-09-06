@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:gcenter/components/BottomNavigationBar.dart';
+import 'package:gcenter/components/app_bar/BottomNavigationBar.dart';
 import 'package:gcenter/components/GameCard.dart';
-import 'package:gcenter/components/HeaderAppBar.dart';
+import 'package:gcenter/components/app_bar/HeaderAppBar.dart';
 import 'package:gcenter/models/Game.dart';
-import 'package:gcenter/repository/GameRepository.dart';
+import 'package:gcenter/services/rest_api_service.dart';
 
 class HomePageScreen extends StatelessWidget {
   const HomePageScreen(BuildContext context, {Key? key}) : super(key: key);
@@ -21,8 +21,7 @@ class HomePageScreen extends StatelessWidget {
     return Container(
         margin: EdgeInsets.all(10),
         child: FutureBuilder<List<Game>?>(
-            future:
-                GameRepository().getGamesSortedByRating(limit: 50, offset: 0),
+            future: APIService().getGamesSortedByRating(limit: 1, offset: 0),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 return ListView(

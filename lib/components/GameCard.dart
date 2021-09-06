@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gcenter/models/Game.dart';
-// import 'package:cached_network_image/cached_network_image.dart';
-// import 'package:gcenter/repository/GameRepository.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:gcenter/services/rest_api_service.dart';
 
 Card gameCard(BuildContext context, Game data) {
   return Card(
@@ -23,12 +23,11 @@ Card gameCard(BuildContext context, Game data) {
           ),
           enableFeedback: true,
         ),
-        // CachedNetworkImage(
-        //   placeholder: (context, url) => CircularProgressIndicator(),
-        //   imageUrl: GameRepository()
-        //       .getImageURL(size: 'cover_big', id: data.realCover),
-        // ),
-        Image.asset('assets/images/empty.jpg'),
+        CachedNetworkImage(
+          placeholder: (context, url) => CircularProgressIndicator(),
+          imageUrl: APIService().getImageURL(size: 'cover_big', id: data.cover),
+        ),
+        // Image.asset('assets/images/empty.jpg'),
         Padding(
           padding: const EdgeInsets.all(16.0),
           child: Text(

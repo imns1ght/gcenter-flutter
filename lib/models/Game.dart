@@ -34,8 +34,6 @@ class Game {
   /// The cover of this game
   int? cover;
 
-  String? realCover;
-
   /// Date this was initially added to the IGDB database (Unix Time Stamp)
   int? createdAt;
 
@@ -182,7 +180,6 @@ class Game {
       this.checksum,
       this.collection,
       this.cover,
-      this.realCover,
       this.createdAt,
       this.dlcs,
       this.expandedGames,
