@@ -23,7 +23,6 @@ class APIService {
     final responseJson = jsonDecode(response.body);
 
     if (response.statusCode == 200) {
-      print(responseJson[0].toString());
       return Game.fromJson(responseJson[0]);
     } else {
       print(
@@ -50,13 +49,12 @@ class APIService {
   }
 
   Future<Cover?> getCoverById({id: int}) async {
-    final body = 'fields image_id; where id = $id;';
+    final body = 'fields *; where id = $id;';
 
     final response = await http.post(Uri.parse(coversUrl), body: body);
     final responseJson = jsonDecode(response.body);
 
     if (response.statusCode == 200) {
-      print(Cover.fromJson(responseJson[0]).toJson().toString());
       return Cover.fromJson(responseJson[0]);
     } else {
       print(

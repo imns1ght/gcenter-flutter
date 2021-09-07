@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gcenter/screens/HomePage.dart';
+import 'package:gcenter/screens/HomeScreen.dart';
 import 'package:gcenter/theme/style.dart';
 
 void main() => runApp(const GCenter());
@@ -13,7 +13,7 @@ class GCenter extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: _title,
-      home: HomePageScreen(context),
+      home: HomeScreen(context),
       theme: appTheme(),
       debugShowCheckedModeBanner: false,
     );

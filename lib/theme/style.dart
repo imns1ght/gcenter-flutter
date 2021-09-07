@@ -18,6 +18,7 @@ ThemeData appTheme() {
     hintColor: Colors.white,
     dividerColor: Colors.white,
     buttonColor: Colors.white,
+    cardColor: Colors.white,
     scaffoldBackgroundColor: Colors.grey[200],
     canvasColor: Colors.black,
   );

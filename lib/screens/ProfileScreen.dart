@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gcenter/components/BackAppBar.dart';
-import 'package:gcenter/components/BottomNavigationBar.dart';
+import 'package:gcenter/components/app_bar/BackAppBar.dart';
+import 'package:gcenter/components/app_bar/BottomNavigationBar.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen(BuildContext context, {Key? key}) : super(key: key);

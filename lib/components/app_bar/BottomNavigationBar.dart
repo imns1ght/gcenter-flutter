@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gcenter/screens/HomePage.dart';
-import 'package:gcenter/screens/Profile.dart';
+import 'package:gcenter/screens/HomeScreen.dart';
+import 'package:gcenter/screens/ProfileScreen.dart';
 
 BottomNavigationBar bottomNavigationBar(BuildContext context) {
   return BottomNavigationBar(
@@ -11,16 +11,19 @@ BottomNavigationBar bottomNavigationBar(BuildContext context) {
     selectedFontSize: 14,
     unselectedFontSize: 14,
     onTap: (value) {
-      Navigator.push(context, MaterialPageRoute<void>(
-        builder: (BuildContext context) {
-          switch (value) {
-            case 3:
-              return ProfileScreen(context);
-            default:
-              return HomePageScreen(context);
-          }
-        },
-      ));
+      Navigator.push(
+        context,
+        MaterialPageRoute<void>(
+          builder: (BuildContext context) {
+            switch (value) {
+              case 3:
+                return ProfileScreen(context);
+              default:
+                return HomeScreen(context);
+            }
+          },
+        ),
+      );
     },
     items: [
       BottomNavigationBarItem(
