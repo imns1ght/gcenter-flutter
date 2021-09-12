@@ -50,7 +50,7 @@ class Game {
   List<int>? externalGames;
 
   /// The first release date of this game (Unix Time Stamp)
-  int? firstRelease;
+  int? firstReleaseDate;
 
   /// Number of people following a game
   int? follows;
@@ -185,7 +185,7 @@ class Game {
       this.expandedGames,
       this.expansions,
       this.externalGames,
-      this.firstRelease,
+      this.firstReleaseDate,
       this.follows,
       this.forks,
       this.franchise,

@@ -4,6 +4,7 @@ import 'package:gcenter/models/Cover.dart';
 import 'package:gcenter/models/Game.dart';
 import 'package:gcenter/screens/GameScreen.dart';
 import 'package:gcenter/services/rest_api_service.dart';
+import 'package:intl/intl.dart';
 
 class GameCard extends StatefulWidget {
   final Game game;
@@ -46,6 +47,7 @@ class _GameCardState extends State<GameCard> {
             children: [
               // Image cover
               Expanded(
+                flex: 1,
                 child: Center(
                   child: Container(
                     child: FutureBuilder(
@@ -77,6 +79,7 @@ class _GameCardState extends State<GameCard> {
               ),
               // Game details
               Expanded(
+                flex: 2,
                 child: Column(
                   children: [
                     Container(
@@ -92,7 +95,7 @@ class _GameCardState extends State<GameCard> {
                               title: Text(widget.game.name,
                                   style: Theme.of(context).textTheme.headline3),
                               subtitle: Text(
-                                "${widget.game.totalRatingCount} Ratings",
+                                "${DateFormat('yyyy/MM/dd').format(DateTime.fromMillisecondsSinceEpoch(widget.game.firstReleaseDate! * 1000).toUtc())}",
                                 style: TextStyle(
                                     color: Colors.black.withOpacity(0.7)),
                               ),
@@ -119,7 +122,7 @@ class _GameCardState extends State<GameCard> {
                                     widget.game.totalRating!.toStringAsFixed(0),
                                     style: TextStyle(
                                         color: Colors.grey[700],
-                                        fontSize: 20,
+                                        fontSize: 16,
                                         fontWeight: FontWeight.bold),
                                   ),
                                 ],
