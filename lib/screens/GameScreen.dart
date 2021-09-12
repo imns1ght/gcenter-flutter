@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:gcenter/components/app_bar/BottomNavigationBar.dart';
 import 'package:gcenter/components/app_bar/HeaderAppBar.dart';
 import 'package:gcenter/models/Game.dart';
-import 'package:gcenter/services/rest_api_service.dart';
 
 class GameScreen extends StatefulWidget {
   final Game game;

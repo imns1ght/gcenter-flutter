@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 ThemeData appTheme() {
   return ThemeData(
     brightness: Brightness.light,
-    primaryColor: Colors.purple[800],
-    accentColor: Colors.cyan[600],
+    primaryColor: Colors.deepPurple[600],
     fontFamily: 'Roboto',
     textTheme: TextTheme(
       headline1: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
@@ -17,7 +16,6 @@ ThemeData appTheme() {
     ),
     hintColor: Colors.white,
     dividerColor: Colors.white,
-    buttonColor: Colors.white,
     cardColor: Colors.white,
     scaffoldBackgroundColor: Colors.grey[200],
     canvasColor: Colors.black,

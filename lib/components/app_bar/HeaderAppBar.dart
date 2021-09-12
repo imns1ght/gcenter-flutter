@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 AppBar headerAppBar(BuildContext context) {
   return AppBar(
+    backgroundColor: Theme.of(context).primaryColor,
     leading: IconButton(
       icon: Icon(Icons.menu),
       tooltip: 'Menu',
