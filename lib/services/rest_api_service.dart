@@ -8,6 +8,8 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:gcenter/models/Cover.dart';
 import 'package:gcenter/models/Game.dart';
+import 'package:gcenter/models/Genre.dart';
+import 'package:gcenter/models/Screenshot.dart';
 import 'package:http/http.dart' as http;
 
 class APIService {
@@ -15,6 +17,8 @@ class APIService {
       "https://hc4u83m674.execute-api.sa-east-1.amazonaws.com/production/v4";
   String gamesUrl = mainUrl + '/games';
   String coversUrl = mainUrl + '/covers';
+  String genresUrl = mainUrl + '/genres';
+  String screenshotsUrl = mainUrl + '/screenshots';
 
   Future<Game?> getGameById({id: int}) async {
     final body = 'fields *; where id = $id;';
@@ -59,6 +63,38 @@ class APIService {
     } else {
       print(
           '\n\nFailed to load the cover image with ID=$id. Error: ${response.statusCode}');
+      return null;
+    }
+  }
+
+  Future<List<Genre>?> getGenresByList(List<int> idList) async {
+    final body = 'fields *; where id = (${idList.join(', ')});';
+
+    final response = await http.post(Uri.parse(genresUrl), body: body);
+    final responseJson = jsonDecode(response.body);
+
+    if (response.statusCode == 200) {
+      return responseJson.map<Genre>((genre) => Genre.fromJson(genre)).toList();
+    } else {
+      print(
+          '\n\nFailed to load the genres with IDs=${idList.toString()}. Error: ${response.statusCode}');
+      return null;
+    }
+  }
+
+  Future<List<Screenshot>?> getScreenshotsByList(List<int> idList) async {
+    final body = 'fields *; where id = (${idList.join(', ')});';
+
+    final response = await http.post(Uri.parse(screenshotsUrl), body: body);
+    final responseJson = jsonDecode(response.body);
+
+    if (response.statusCode == 200) {
+      return responseJson
+          .map<Screenshot>((screenshot) => Screenshot.fromJson(screenshot))
+          .toList();
+    } else {
+      print(
+          '\n\nFailed to load the screenshots with IDs=${idList.toString()}. Error: ${response.statusCode}');
       return null;
     }
   }
